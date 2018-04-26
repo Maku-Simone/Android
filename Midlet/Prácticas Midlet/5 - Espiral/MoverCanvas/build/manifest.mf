@@ -1,0 +1,10 @@
+MIDlet-2: MoverCuadro, , MoverCuadro
+MIDlet-3: MoverLinea, , MoverLinea
+MIDlet-4: MoverEspiral, , MoverEspiral
+MIDlet-5: SpinEspiral, , SpinEspiral
+MIDlet-1: MoverImagen, , MoverImagen
+MIDlet-Vendor: Vendor
+MIDlet-Version: 1.0
+MIDlet-Name: MoverCanvas
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.1

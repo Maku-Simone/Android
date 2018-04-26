@@ -1,0 +1,61 @@
+import javax.microedition.midlet.*;
+import javax.microedition.lcdui.*;
+public class Agenda extends MIDlet implements CommandListener{
+	Command c;
+	Command ventanaVer, ventanaNuevo, ventanaInicio, guardar;
+	Display d;
+	Form f;
+	Form ingresar;
+	String[] contacto;
+	TextField nombre, edad, email, tf;
+	int i;
+	public Agenda() {
+		i=0;
+		d=Display.getDisplay(this);
+		c=new Command("salir",Command.EXIT,3);
+		ventanaNuevo=new Command("Nvo contacto",Command.SCREEN,2);
+		guardar=new Command("Guardar",Command.SCREEN,2);
+		ventanaInicio=new Command("Regresar",Command.SCREEN,3);
+		ventanaVer=new Command("Ver",Command.OK,0);
+		f=new Form("Mi Agenda");
+		ingresar=new Form("Nuevo contacto");
+		nombre=new TextField("Nombre","",30,TextField.ANY);
+		edad=new TextField("Edad","",30,TextField.NUMERIC);
+		email=new TextField("E-mail","",30,TextField.EMAILADDR);
+                tf = new TextField("Otro", "", 10, TextField.ANY);
+		ingresar.addCommand(ventanaInicio);
+		ingresar.addCommand(guardar);
+		ingresar.append(nombre);
+		ingresar.append(edad);
+		ingresar.append(email);
+            ingresar.append(tf);
+		ingresar.setCommandListener(this);
+		f.addCommand(ventanaVer);
+		f.addCommand(c);
+		f.addCommand(ventanaNuevo);
+		f.setCommandListener(this);
+	}
+	protected void destroyApp(boolean b) {	}
+	protected void pauseApp() {}
+	protected void startApp() throws MIDletStateChangeException {
+		d.setCurrent(f);
+	}
+	public void commandAction(Command co, Displayable disp) {
+		if(co == ventanaNuevo)
+			d.setCurrent(ingresar);
+		if(co == guardar){
+			Alert alerta=new Alert("","	contacto \nguardado",null,AlertType.INFO);
+			d.setCurrent(alerta);
+			alerta.setTimeout(2000);
+		}
+		if(co == ventanaInicio){
+			StringItem si=new StringItem("","Nombre: "+nombre.getString()+"\nEdad: "+edad.getString()+"\nE-mail: "+email.getString()+"\n\n");
+			f.append(si);
+			d.setCurrent(f);
+		}
+		if(co == c){
+			destroyApp(false);
+			notifyDestroyed();
+		}
+	}
+}

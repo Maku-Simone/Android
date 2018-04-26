@@ -1,0 +1,8 @@
+MIDlet-1: HelloMIDlet, ,holi.HelloMIDlet
+MIDlet-Jar-Size: 2006
+MIDlet-Jar-URL: Holi-3-.jar
+MIDlet-Name: Holi-3-
+MIDlet-Vendor: Vendor
+MIDlet-Version: 1.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.1
